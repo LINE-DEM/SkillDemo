@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "XZQ1maaYwgQLFCdh9qaTrV7SlNntucdItWbY2w1UYTQTV7MV/SEDWJXFDQ/ElBtseap6QzJmmCgoyNfE+XgcEA==",
+  "success": true,
+  "projectFilePath": "D:\\BaiduNetdiskDownload\\Chapter08\\Chapter08\\HOKServer\\HOKProtocol\\HOKProtocol.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hyf\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\hyf\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
