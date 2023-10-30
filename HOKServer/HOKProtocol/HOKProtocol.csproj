@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>D:\PETuts\HOK\_4Demo\HOKClient\Assets\Scripts\00Common\Libs\KCPNet\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="KCPNet">
+      <HintPath>..\..\..\_3Note\Libs\KCPNetLibs\KCPNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
