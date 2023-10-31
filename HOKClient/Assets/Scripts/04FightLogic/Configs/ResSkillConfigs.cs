@@ -482,14 +482,48 @@ public class ResSkillConfigs {
         iconName = "arthur_sk1",
         aniName = "atk",
         releaseMode = ReleaseModeEnum.Postion,
-        cdTime =10000,  //ms
+        cdTime =1000,  //ms
         spellTime = 0,//施法时间（技能前摇）
         isNormalAttack = false,
         skillTime = 1400,
         damage = 0,
         
-        buffIDArr = new int[] { 10305},
+        buffIDArr = new int[] { 10305,10306},
         
+        //最近的敌方目标
+        targetCfg = new TargetCfg {
+            targetTeam = TargetTeamEnum.Dynamic,//动态目标
+            selectRange = 6,//动态施法范围，纯自身buff技能这个数值为0
+        },
+        audio_start = null,
+        audio_work = "houyi_ska_multiarrow",
+        audio_hit = "houyi_multi_hit"
+    };
+    //酒桶R技能
+    public static SkillCfg sk_1033 = new SkillCfg {
+        skillID = 1033,
+        iconName = "arthur_sk1",
+        aniName = "atk",
+        releaseMode = ReleaseModeEnum.Postion,
+        cdTime =1000,  //ms
+        spellTime = 550,//施法时间（技能前摇）
+        isNormalAttack = false,
+        skillTime = 1400,
+        damage = 0,
+        
+        buffIDArr = new int[] { 10308},
+        bulletCfg = new BulletCfg {
+            bulletType = BulletTypeEnum.UIDirectionNoCollider,//无碰撞伤害位置型
+            bulletName = "酒桶R技能筒子",
+            resPath = "houyi_ska_bullet_edskmixed",
+            bulletSpeed = 1f,
+            bulletSize = 0.1f,
+            bulletHeight = 1.5f,
+            bulletOffset = 0.5f,
+            bulletDelay = 0,
+            isNoDamage = true,
+            bulletDuration = 0,//ms 不需要停留 直接爆炸
+        },
         //最近的敌方目标
         targetCfg = new TargetCfg {
             targetTeam = TargetTeamEnum.Dynamic,//动态目标

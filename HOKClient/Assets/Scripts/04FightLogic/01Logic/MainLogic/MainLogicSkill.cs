@@ -51,6 +51,10 @@ public partial class MainLogicUnit {
                 buffLst[i].LogicUnInit();
                 buffLst.RemoveAt(i);
             }
+            // else if (buffLst[i].unitState == SubUnitState.End)
+            // {
+            //     
+            // }
             else {
                 buffLst[i].LogicTick();
             }

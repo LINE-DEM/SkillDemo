@@ -140,6 +140,8 @@ public class ResSvc : MonoBehaviour {
                 return new KillBulletBuff(source, owner, skill, buffID, args);
             case BuffTypeEnum.MoveToUITarget:
                 return new MoveToUITargetBuff(source, owner, skill, buffID, args);
+            case BuffTypeEnum.jiutongSkillTwo:
+                return new jiutongSkillTwo(source, owner, skill, buffID, args);
             //TOADD
             case BuffTypeEnum.None:
             default:
@@ -196,7 +198,7 @@ public class ResSvc : MonoBehaviour {
                         mRadius = (PEInt)0.5f
                     },
                     pasvBuff = new int[] { 10200, 10201 ,10300},
-                    skillArr = new int[] { 1020, 1021, 1030, 1032 }
+                    skillArr = new int[] { 1020, 1030, 1032, 1033 }
                 };
             case 103:
                 return new UnitCfg {
@@ -285,6 +287,14 @@ public class ResSvc : MonoBehaviour {
                 return ResBuffConfigs.buff_10304;
             case 10305:
                 return ResBuffConfigs.buff_10305;
+            case 10306:
+                return ResBuffConfigs.buff_10306;
+            case 10307:
+                return ResBuffConfigs.buff_10307;
+            case 10308:
+                return ResBuffConfigs.buff_10308;
+            // case 10309:
+            //     return ResBuffConfigs.buff_10309;
             //通用
             case 90000:
                 return ResBuffConfigs.buff_90000;
@@ -326,6 +336,8 @@ public class ResSvc : MonoBehaviour {
                 return ResSkillConfigs.sk_1031;
             case 1032:
                 return ResSkillConfigs.sk_1032;
+            case 1033:
+                return ResSkillConfigs.sk_1033;
             
             default:
                 this.Error("Get Skill Config Failed,skillID:" + skillID);

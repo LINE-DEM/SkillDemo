@@ -26,7 +26,7 @@ public class MoveToUITargetBuff : Buff {
     public Action<List<MainLogicUnit>> TouchEnmycb;
     public MoveToUITargetBuff(MainLogicUnit source, MainLogicUnit owner, Skill skill, int buffID, object[] args = null)
         : base(source, owner, skill, buffID, args) {
-        disVec= skill.skillArgs - owner.LogicPos;
+        disVec= skill.skillArgs + owner.LogicPos;
     }
 
     public override void LogicInit() {
@@ -44,10 +44,11 @@ public class MoveToUITargetBuff : Buff {
     public override void LogicTick()
     {
         base.LogicTick();
-        owner.LogicPos += disVec.normalized * speed * (PEInt)Configs.ClientLogicFrameDeltaSec;
-        if ((owner.LogicPos - skill.skillArgs).magnitude <=(PEInt)0.1)
+        owner.InputFakeMoveKey(PEVector3.zero);
+        owner.LogicPos += skill.skillArgs.normalized * speed * (PEInt)Configs.ClientLogicFrameDeltaSec;
+        if ((owner.LogicPos - disVec).magnitude <=(PEInt)1)
         {
-            unitState = SubUnitState.End;
+            unitState = SubUnitState.None;
         }
         
         //这里的碰撞检测逻辑最好分开写 返回
@@ -66,10 +67,11 @@ public class MoveToUITargetBuff : Buff {
         {
             TouchEnmycb?.Invoke(hitLst);
             
-            unitState = SubUnitState.End;
+            unitState = SubUnitState.None;
             // MainLogicUnit hitTarget = CalcRule.FindMinDisTargetInPos(lastPos, hitLst.ToArray());
             // hitTargetCB(hitTarget, new object[] { bulletTime, hitTarget.LogicPos });
             // unitState = SubUnitState.End;
         }
+        
     }
 }

@@ -91,4 +91,5 @@ public enum BuffTypeEnum {
     HPCureInSkillDone,//释放技能后百分比回血
     KillBullet,
     MoveToUITarget,
+    jiutongSkillTwo,
 }

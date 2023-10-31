@@ -691,5 +691,63 @@ public class ResBuffConfigs {
         //专有属性
         speed = 20,
     };
+    //肉蛋葱鸡 专用buff  负责监听碰撞事件
+    public static BuffCfg buff_10306 = new BuffCfg {
+        //通用buff属性
+        buffID = 10306,
+        buffName = "负责监听碰撞事件 然后加范围击飞buff",
+        buffType = BuffTypeEnum.jiutongSkillTwo,
+        attacher = AttachTypeEnum.Caster,
+        buffDelay = 0,
+        buffInterval = 0, //tick 间隔
+        buffDuration = 4,
+    };
+    //肉蛋葱鸡 专用buff  范围击飞敌方
+    public static BuffCfg buff_10307 = new ExecuteDamageBuffCfg {
+        //通用buff属性
+        buffID = 10307,
+        buffName = "范围击飞",
+        buffType = BuffTypeEnum.Knockup_Group,
+        impacter = new TargetCfg {
+            targetTeam = TargetTeamEnum.Enemy,
+            selectRule = SelectRuleEnum.TargetClosetMultiple,
+            targetTypeArr = new UnitTypeEnum[] {
+                UnitTypeEnum.Hero,
+                UnitTypeEnum.Soldier
+            },
+            selectRange = 2f
+        },
+
+        buffDelay = 0,
+        buffInterval = 0,
+        buffDuration = 500,
+    };
+    
+    
+    //群体伤害buff 新的触发点 子弹终结时挂载
+    public static BuffCfg buff_10308 = new DamageBuffCfg_StaticGroup {
+        //通用buff属性
+        buffID = 10308,
+        buffName = "范围伤害buff",
+        buffType = BuffTypeEnum.Damage_StaticGroup,
+        staticPosType = StaticPosTypeEnum.BulletPos,
+        attacher = AttachTypeEnum.Bullet,
+        impacter = new TargetCfg {
+            targetTeam = TargetTeamEnum.Enemy,
+            selectRule = SelectRuleEnum.PositionClosestMultiple,
+            targetTypeArr = new UnitTypeEnum[] {
+                UnitTypeEnum.Hero,
+                UnitTypeEnum.Soldier,
+            },
+            selectRange = 2f
+        },
+
+        buffDelay = 0,
+        buffInterval = 66, //tick 间隔
+        buffDuration = -1,
+
+        //专有属性
+        damage = 20,
+    };
     #endregion
 }
