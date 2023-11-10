@@ -13,6 +13,7 @@
 using HOKProtocol;
 using PEUtils;
 using System.Collections.Generic;
+using JKFrame;
 using UnityEngine;
 
 public class GameRoot : MonoBehaviour {
@@ -102,7 +103,8 @@ public class GameRoot : MonoBehaviour {
         lobby.InitSys();
         BattleSys battle = GetComponent<BattleSys>();
         battle.InitSys();
-
+        PoolManager pool = GetComponent<PoolManager>();
+        pool.Init();
         //login
         PELog.Log("EnterLogin.");
         login.EnterLogin();

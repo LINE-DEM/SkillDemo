@@ -17,6 +17,10 @@ public class BulletView : ViewUnit {
     }
 
     public void DestroyBullet() {
-        Destroy(gameObject, 0.1f);
+        if (gameObject!=null)
+        {
+            Destroy(gameObject, 0.1f);
+        }
+        
     }
 }

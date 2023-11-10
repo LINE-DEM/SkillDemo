@@ -13,6 +13,9 @@
 
 using PEMath;
 using UnityEngine;
+using System.Collections.Generic;
+using Sirenix.Serialization;
+
 /// <summary>
 /// 攻速/移速动画变化 
 /// 技能动画播放
@@ -25,7 +28,9 @@ public abstract class MainViewUnit : ViewUnit {
     //血条定位transform
     public Transform hpRoot;
     public Animation ani;
-
+    public Animation_Controller PlayAbleController;
+    [OdinSerialize]
+    public Dictionary<string, AnimationClip> Clips = new Dictionary<string, AnimationClip>();
     float aniMoveSpeedBase;
     float aniAttackSpeedBase;
 
@@ -35,6 +40,11 @@ public abstract class MainViewUnit : ViewUnit {
     MainLogicUnit mainLogicUnit = null;
     public override void Init(LogicUnit logicUnit) {
         base.Init(logicUnit);
+        if (PlayAbleController!=null)
+        {
+            PlayAbleController.Init();
+        }
+        
         mainLogicUnit = logicUnit as MainLogicUnit;
 
         //移速
@@ -53,15 +63,26 @@ public abstract class MainViewUnit : ViewUnit {
     }
 
     protected override void Update() {
+        
         if(mainLogicUnit.isDirChanged && !mainLogicUnit.IsSkillSpelling()) {
             if(mainLogicUnit.LogicDir.ConvertViewVector3().Equals(Vector3.zero)) {
                 PlayAni("free");
             }
             else {
-                PlayAni("walk");
+                //todo 动画补丁
+                if (PlayAbleController!=null)
+                {
+                    PlayAbleController.PlaySingleAniamtion(Clips["walk"],1,false);
+                    
+                }
+                else
+                {
+                    PlayAni("walk");
+                }
+                
             }
         }
-
+        
         base.Update();
     }
 
@@ -72,13 +93,28 @@ public abstract class MainViewUnit : ViewUnit {
     public virtual void OnDeath(MainLogicUnit unit) { }
 
     public override void PlayAni(string aniName) {
-        //this.Log("Play ani:" + aniName);
+        
+        //todo 动画补丁
+        if (PlayAbleController!=null)
+        {
+            PlayAbleController.PlaySingleAniamtion(Clips[aniName],1,false);
+            return;
+        }
+
+        
         if(aniName == "atk") {
             aniName = "atk" + Random.Range(1, 3);
         }
 
         if(aniName.Contains("walk")) {
             float moveRate = mainLogicUnit.LogicMoveSpeed.RawFloat / aniMoveSpeedBase;
+            foreach (AnimationState anim in ani)
+            {
+                if (anim.name.Contains("walk"))
+                {
+                    print(anim.name);
+                }
+            }
             ani[aniName].speed = moveRate;
             ani.CrossFade(aniName, fade / moveRate);
         }

@@ -93,6 +93,7 @@ public class NetSvc : MonoBehaviour {
             if(msgPackQue.Count > 0) {
                 lock(pkgque_lock) {
                     HOKMsg msg = msgPackQue.Dequeue();
+                   
                     HandoutMsg(msg);
                 }
             }

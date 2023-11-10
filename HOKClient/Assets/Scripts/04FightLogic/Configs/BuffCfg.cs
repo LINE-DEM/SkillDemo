@@ -92,4 +92,5 @@ public enum BuffTypeEnum {
     KillBullet,
     MoveToUITarget,
     jiutongSkillTwo,
+    GroupHitBackByPoint,
 }

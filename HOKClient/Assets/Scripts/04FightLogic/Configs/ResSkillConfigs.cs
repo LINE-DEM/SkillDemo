@@ -423,7 +423,7 @@ public class ResSkillConfigs {
     public static SkillCfg sk_1030 = new SkillCfg {
         skillID = 1030,
         iconName = "arthur_sk1",
-        aniName = "atk",
+        aniName = "SpellQ",
         releaseMode = ReleaseModeEnum.Postion,
         cdTime =10000,  //ms
         spellTime = 550,//施法时间（技能前摇）
@@ -511,7 +511,7 @@ public class ResSkillConfigs {
         skillTime = 1400,
         damage = 0,
         
-        buffIDArr = new int[] { 10308},
+        buffIDArr = new int[] { 10308,10309},
         bulletCfg = new BulletCfg {
             bulletType = BulletTypeEnum.UIDirectionNoCollider,//无碰撞伤害位置型
             bulletName = "酒桶R技能筒子",

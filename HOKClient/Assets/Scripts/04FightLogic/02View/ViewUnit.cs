@@ -11,9 +11,10 @@
     \\=================*=================//
 *************************************************/
 
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-public abstract class ViewUnit : MonoBehaviour {
+public abstract class ViewUnit : SerializedMonoBehaviour {
     //Pos
     public bool IsSyncPos;
     public bool PredictPos;

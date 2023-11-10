@@ -88,6 +88,7 @@ public partial class PlayWnd : WindowRoot {
             if(h != 0 || v != 0) {
                 keyDir = keyDir.normalized;
             }
+
             InputMoveKey(keyDir);
             lastKeyDir = keyDir;
         }

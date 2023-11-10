@@ -142,6 +142,8 @@ public class ResSvc : MonoBehaviour {
                 return new MoveToUITargetBuff(source, owner, skill, buffID, args);
             case BuffTypeEnum.jiutongSkillTwo:
                 return new jiutongSkillTwo(source, owner, skill, buffID, args);
+            case BuffTypeEnum.GroupHitBackByPoint:
+                return new GroupHitBackByPoint(source, owner, skill, buffID, args);
             //TOADD
             case BuffTypeEnum.None:
             default:
@@ -187,8 +189,8 @@ public class ResSvc : MonoBehaviour {
             case 102:
                 return new UnitCfg {
                     unitID = 102,
-                    unitName = "后羿",
-                    resName = "houyi",
+                    unitName = "酒桶",
+                    resName = "Jiutong",
                     hitHeight = (PEInt)1.5F,
                     hp = 3500,
                     def = 10,
@@ -293,8 +295,8 @@ public class ResSvc : MonoBehaviour {
                 return ResBuffConfigs.buff_10307;
             case 10308:
                 return ResBuffConfigs.buff_10308;
-            // case 10309:
-            //     return ResBuffConfigs.buff_10309;
+            case 10309:
+                return ResBuffConfigs.buff_10309;
             //通用
             case 90000:
                 return ResBuffConfigs.buff_90000;

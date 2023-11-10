@@ -749,5 +749,32 @@ public class ResBuffConfigs {
         //专有属性
         damage = 20,
     };
+    
+    //群体击退buff
+    public static BuffCfg buff_10309 = new GroupHitBackByPointCfg {
+        //通用buff属性
+        buffID = 10309,
+        buffName = "群体击退buff",
+        buffType = BuffTypeEnum.GroupHitBackByPoint,
+        staticPosType = StaticPosTypeEnum.BulletPos,
+        attacher = AttachTypeEnum.Bullet,
+        impacter = new TargetCfg {
+            targetTeam = TargetTeamEnum.Enemy,
+            selectRule = SelectRuleEnum.PositionClosestMultiple,
+            targetTypeArr = new UnitTypeEnum[] {
+                UnitTypeEnum.Hero,
+                UnitTypeEnum.Soldier,
+            },
+            selectRange = 5f
+        },
+
+        buffDelay = 0,
+        buffInterval = 66, //tick 间隔
+        buffDuration = -1,
+
+        //专有属性
+        speed = 3,        //位移速度
+        distance = 2,
+    };
     #endregion
 }
